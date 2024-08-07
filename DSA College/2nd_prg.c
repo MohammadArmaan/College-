@@ -15,6 +15,7 @@ void replace(char str[],char sub[],char nstr[])
         for(j=0;str[i]==sub[j];j++,i++)
             if(j==subLen-1)
                 flag=1;
+                
         end=i;
         if(flag==0)
             i-=j;
