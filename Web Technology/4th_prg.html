@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fourth Program</title>
+        <style>
+            * {
+                font-family: sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            form {
+                margin: 50px;
+                height: auto;
+                width: 800px;
+                box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+                border-radius: 9px;
+                padding: 40px;
+            }
+
+            h1 {
+                text-align: center;
+            }
+
+            .form-group {
+                font-size: 18px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                display: flex;
+                align-items: start;
+                justify-content: start;
+                flex-direction: column;
+                color: #333;
+            }
+
+            .input {
+                padding: 5px;
+                height: 30px;
+                width: 100%;
+                font-size: 18px;
+                border-radius: 9px;
+                border: 1px solid #ccc;
+                outline: none;
+            }
+
+            .input:focus {
+                border: 2px solid #333;
+            }
+
+            .gender {
+                display: flex;
+                justify-content: start;
+                align-items: start;
+                gap: 50px;
+            }
+
+            textarea {
+                padding: 5px;
+                width: 100%;
+                font-size: 18px;
+                border-radius: 9px;
+                border: 1px solid #ccc;
+                outline: none;
+            }
+
+            textarea:focus {
+                border: 2px solid #333;
+            }
+
+            select:focus {
+                border: 2px solid #333;
+            }
+
+            select {
+                padding: 10px;
+                width: 100%;
+                font-size: 18px;
+                border-radius: 9px;
+                border: 1px solid #ccc;
+                outline: none;
+            }
+
+            .button-group {
+                display: flex;
+                align-items: center;
+                justify-content: stretch;
+                gap: 5px;
+            }
+
+            .btn {
+                cursor: pointer;
+                border: none;
+                flex: 1;
+                padding: 15px;
+                color: #fff;
+                text-transform: uppercase;
+                border-radius: 9px;
+            }
+
+            .submit {
+                background-color: #4caf50;
+            }
+            .reset {
+                background-color: #f44336;
+            }
+
+            .gender-options {
+                display: flex;
+                align-items: center;
+                gap: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <form class="form">
+            <div class="form-header">
+                <h1>Registration Form</h1>
+            </div>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input
+                    type="text"
+                    id="firstName"
+                    class="input"
+                    placeholder="Please enter your first name"
+                    required
+                />
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input
+                    type="text"
+                    id="lastName"
+                    class="input"
+                    placeholder="Please enter your last name"
+                    required
+                />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    class="input"
+                    placeholder="Please enter your email"
+                    required
+                />
+            </div>
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input
+                    type="date"
+                    id="date"
+                    class="input"
+                    placeholder="Please enter the email"
+                    required
+                />
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <div class="gender-options">
+                    <div>
+                        <label for="male">Male</label>
+                        <input type="radio" id="male" value="male" required />
+                    </div>
+
+                    <div>
+                        <label for="male">Female</label>
+                        <input
+                            type="radio"
+                            id="female"
+                            value="female"
+                            required
+                        />
+                    </div >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select class="select" id="country">
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="Canada">Canada</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="male">Bio</label>
+                <textarea rows="6" id="bio" class="bio" name="bio"></textarea>
+            </div>
+            <div class="button-group">
+                <button type="submit" class="btn submit">Register</button>
+                <button type="reset" class="btn reset">Cancel</button>
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Newspaper Page</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background: #f0f4f8;
+                color: #333;
+            }
+            header{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            header,
+            footer {
+                text-align: center;
+                background: #7b38f7;
+                color: #fff;
+                padding: 10px;
+            }
+            nav a {
+                margin: 0 10px;
+                color: #fff;
+                text-decoration: none;
+            }
+            .content {
+                padding: 20px;
+            }
+            article {
+                background: #fff;
+                margin: 10px 0;
+                padding: 15px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+            }
+            aside {
+                margin-top: 20px;
+                padding: 10px;
+                background: #fff;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Newspaper</h1>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </nav>
+        </header>
+        <div class="content">
+            <article>
+                <h2>Article Title 1</h2>
+                <p>This is the content of the first article.</p>
+            </article>
+            <article>
+                <h2>Article Title 2</h2>
+                <p>This is the content of the second article.</p>
+            </article>
+            <aside>
+                <h3>Related News</h3>
+                <ul>
+                    <li><a href="#">News 1</a></li>
+                    <li><a href="#">News 2</a></li>
+                    <li><a href="#">News 3</a></li>
+                </ul>
+            </aside>
+        </div>
+        <footer>
+            <p>©️ 2024 Newspaper</p>
+        </footer>
+    </body>
+</html>

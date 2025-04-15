@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>6th Prg</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                font-family: sans-serif;
+                outline: none;
+            }
+
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+            }
+            .calculator {
+                position: absolute;
+                top: 30%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                height: auto;
+                width: 400px;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                padding: 35px;
+            }
+            h1 {
+                font-size: 20px;
+                text-align: center;
+                padding: 10px;
+                background-color: #000;
+                color: #fff;
+                border-radius: 9px;
+                margin: 35px;
+            }
+            input {
+                width: 100%;
+                padding: 5px;
+                font-size: 18px;
+                margin-bottom: 20px;
+                border-radius: 9px;
+                border: 1px solid #ccc;
+            }
+            input:focus {
+                border: 2px solid #007bff;
+            }
+            select {
+                width: 103%;
+                padding: 5px;
+                font-size: 18px;
+                margin-bottom: 20px;
+                border-radius: 9px;
+                border: 1px solid #ccc;
+            }
+            button {
+                width: 100%;
+                padding: 5px;
+                font-size: 18px;
+                margin-bottom: 20px;
+                border-radius: 9px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+            }
+            #result {
+                padding: 8px;
+                text-align: center;
+                border-radius: 9px;
+                font-size: 18px;
+                font-weight: 500;
+                border: 1px solid;
+                opacity: 0;
+                transition: 0.3s all ease-in;
+            }
+
+            #result.show {
+                opacity: 1;
+            }
+
+            #result.success {
+                background-color: #6ef08d38;
+                border-color: #47e56d;
+            }
+
+            #result.error {
+                background-color: #f05;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="calculator">
+            <h1>Simple Calculator</h1>
+            <form>
+                <input type="number" placeholder="num1" name="num1" id="num1" />
+                <input type="number" placeholder="num2" name="num2" id="num2" />
+                <select id="operation">
+                    <option>Select an Option</option>
+                    <option value="sum">Sum</option>
+                    <option value="difference">Difference</option>
+                    <option value="product">Product</option>
+                    <option value="quotient">Quotient</option>
+                    <option value="remainder">Remainder</option>
+                    <option value="squareRoot">Square Root</option>
+                    <option value="power">Power</option>
+                </select>
+                <button type="button" onclick="calcuate()">Calculate</button>
+            </form>
+            <div id="result"></div>
+        </div>
+        <script>
+            function calcuate() {
+                const num1 = parseFloat(document.getElementById("num1").value);
+                const num2 = parseFloat(document.getElementById("num2").value);
+                const operation = document.getElementById("operation").value;
+                let result = "";
+                let resultClass = "success";
+                if (isNaN(num1) || isNaN(num2)) {
+                    result = "Please Enter the Numbers";
+                    resultClass = "error"
+
+                } else {
+                    switch (operation) {
+                        case "sum":
+                            result = `Sum is ${num1 + num2}`;
+                            break;
+
+                        case "difference":
+                            result = `Difference is ${num1 - num2}`;
+                            break;
+
+                        case "product":
+                            result = `Product is ${num1 * num2}`;
+                            break;
+
+                        case "quotient":
+                            if (num2 === 0) {
+                                result = "Cannot divide by zero";
+                                break;
+                            } else {
+                                result = `Quotient is ${num1 / num2}`;
+                                break;
+                            }
+
+                        case "remainder":
+                            result = `Remainder is ${num1 % num2}`;
+                            break;
+
+                        case "squareRoot":
+                            result = `Square root of ${num1}: ${Math.sqrt(
+                                num1
+                            )} <br> Sqaure root of ${num2}: ${Math.sqrt(num2)}`;
+                            break;
+
+                        case "power":
+                        result = `Power of ${num1}: ${Math.pow(
+                                num1, 2
+                            )} <br> Sqaure root of ${num2}: ${Math.sqrt(num2, 2)}`;
+                            break;
+
+                        default:
+                            result = "Invalid Operation";
+                            resultClass = "error"
+                            break;
+                    }
+                }
+                const resultDiv = document.getElementById("result");
+                resultDiv.innerHTML = result;
+                resultDiv.classList.remove("show", "error", "success");
+                resultDiv.classList.add(resultClass, "show");
+            }
+        </script>
+    </body>
+</html>

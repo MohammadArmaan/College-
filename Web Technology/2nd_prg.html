@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Time Table</title>
+    </head>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #e6f7ff;
+        }
+
+        .lab-hour {
+            background-color: #ffcccc;
+        }
+
+        .elective-hour {
+            background-color: #ccffcc;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #d63384;
+        }
+
+        tfoot {
+            background-color: #e0e0e0;
+        }
+    </style>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date/Time</th>
+                    <th>9:00 - 10:00</th>
+                    <th>10:00 - 11:00</th>
+                    <th>Tea Break</th>
+                    <th>11:15 - 12:15</th>
+                    <th>12:15 - 01:15</th>
+                    <th>Lunch Break</th>
+                    <th>2:00 - 2:55</th>
+                    <th>2:55 - 3:50</th>
+                    <th>3:55 - 4:45</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Monday</td>
+                    <td>TOC</td>
+                    <td>CN</td>
+                    <td rowspan="6" class="highlight">Tea Break</td>
+                    <td>RMK</td>
+                    <td>Mentoring</td>
+                    <td rowspan="6" class="highlight">Lunch Break</td>
+                    <td>SE</td>
+                    <td colspan="2">Mini Project</td>
+                </tr>
+                <tr>
+                    <td>Tuesday</td>
+                    <td>TOC</td>
+                    <td class="elective-hour">AI</td>
+                    <td>RMK</td>
+                    <td>EVS</td>
+                    <td>SE</td>
+                    <td colspan="2">Mini Project</td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td colspan="2" class="lab-hour">
+                        Web Tecnology Lab B1/ CN Lab B2
+                    </td>
+                    <td class="elective-hour">AI</td>
+                    <td>TOC</td>
+                    <td>RMK</td>
+                    <td colspan="2">BNSK559/BPEK559</td>
+                </tr>
+                <tr>
+                    <td>Thursday</td>
+                    <td>TOC</td>
+                    <td>EVS</td>
+                    <td>SE</td>
+                    <td>RMK</td>
+                    <td>CN</td>
+                    <td colspan="2">Mini Project</td>
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td colspan="2" class="lab-hour">
+                        Web Tecnology Lab B2/ CN Lab B1
+                    </td>
+                    <td>CN</td>
+                    <td class="elective-hour">AI</td>
+                    <td>TOC</td>
+                    <td colspan="2">Mini Project</td>
+                </tr>
+                <tr>
+                    <td>Saturday</td>
+                    <td>SE</td>
+                    <td>CN</td>
+                    <td>EVS</td>
+                    <td class="elective-hour">AI</td>
+                    <td colspan="3">-</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="10" class="highlight">End of Time Table</td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+</html>

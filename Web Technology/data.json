@@ -1,0 +1,75 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "Alice Johnson",
+        "age": 25,
+        "email": "alice.johnson@example.com",
+        "isStudent": false
+      },
+      {
+        "id": 2,
+        "name": "Bob Smith",
+        "age": 30,
+        "email": "bob.smith@example.com",
+        "isStudent": true
+      },
+      {
+        "id": 3,
+        "name": "Charlie Brown",
+        "age": 35,
+        "email": "charlie.brown@example.com",
+        "isStudent": false
+      },
+      {
+        "id": 4,
+        "name": "Diana Prince",
+        "age": 28,
+        "email": "diana.prince@example.com",
+        "isStudent": true
+      },
+      {
+        "id": 5,
+        "name": "Edward Elric",
+        "age": 22,
+        "email": "edward.elric@example.com",
+        "isStudent": true
+      },
+      {
+        "id": 6,
+        "name": "Fiona Gallagher",
+        "age": 27,
+        "email": "fiona.gallagher@example.com",
+        "isStudent": false
+      },
+      {
+        "id": 7,
+        "name": "George Harrison",
+        "age": 40,
+        "email": "george.harrison@example.com",
+        "isStudent": false
+      },
+      {
+        "id": 8,
+        "name": "Hannah Montana",
+        "age": 19,
+        "email": "hannah.montana@example.com",
+        "isStudent": true
+      },
+      {
+        "id": 9,
+        "name": "Ian Curtis",
+        "age": 32,
+        "email": "ian.curtis@example.com",
+        "isStudent": false
+      },
+      {
+        "id": 10,
+        "name": "Jane Austen",
+        "age": 45,
+        "email": "jane.austen@example.com",
+        "isStudent": false
+      }
+    ]
+  }
+  

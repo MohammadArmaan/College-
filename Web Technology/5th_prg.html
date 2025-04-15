@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>5th Program</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                font-family: sans-serif;
+            }
+            header {
+                height: 80px;
+                width: 97vw;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding-left: 35px;
+                padding-right: 35px;
+                color: #fff;
+                background-color: #f07f;
+                font-size: 18px;
+            }
+            .logo {
+                font-size: 24px;
+                font-style: italic;
+            }
+            .links {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 40px;
+            }
+            .nav-link:link,
+            .nav-link:active,
+            .nav-link:visited,
+            .nav-link:hover {
+                text-decoration: none;
+                font-size: 22px;
+                color: #fff;
+            }
+            main {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                margin: 50px;
+            }
+            .articles_section {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 100px;
+            }
+            .articles {
+                height: auto;
+                width: 1000px;
+                display: flex;
+                flex-direction: row;
+                gap: 30px;
+                box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+                border-radius: 9px;
+                padding: 25px;
+            }
+            .article {
+                width: 440px;
+                box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+                border-radius: 9px;
+                padding: 25px;
+            }
+            .article-title{
+                font-size: 18px;
+                color: #f07f;
+                text-align: center;
+                margin-bottom: 20px; 
+            }
+            figure {
+                border: 1px solid #333;
+                border-radius: 9px;
+                overflow: hidden;
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+            caption{
+                background-color: #eee;
+                padding: 8px;
+            }
+            img {
+                height: 250px;
+                width: 450px;
+            }
+            aside {
+                height: 350px;
+                width: 200px;
+                box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+                border-radius: 9px;
+                padding: 35px;
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+            }
+            aside h1 {
+                text-align: center;
+                padding: 8px;
+                background-color: #000;
+                color: #fff;
+                border-radius: 9px;
+
+            }
+
+            .related_news_links {
+                display: flex;
+                align-items: start;
+                flex-direction: column;
+                gap: 35px;
+            }
+            .realted_news_link:link,
+            .realted_news_link:active,
+            .realted_news_link:visited,
+            .realted_news_link:hover {
+                text-decoration: none;
+                color: #f07f;
+            }
+
+            .recent_posts{
+                margin-top: 35px;
+                margin-bottom: 35px;
+                width: 100%;
+                height: auto;
+                padding: 25px;
+                box-shadow: 0px 4px 8px 0px rgba(0,0,0, 0.2);
+                border-radius: 9px;
+            }
+
+            .recent_posts h1 {
+                margin-left: auto;
+                text-align: center;
+                padding: 10px;
+                background-color: #000;
+                color: #fff;
+                width: 100%;
+                border-radius: 9px;
+            }
+
+            .recent_posts table {
+                width: 100%;
+                margin: 50px 0;
+            }
+
+            th,
+            td {
+                border: 1px solid #ccc;
+            }
+
+            th {
+                background-color: aqua;
+                color: #f04;
+                padding: 15px;
+            }
+
+            td {
+                background-color: #eee;
+                padding: 10px;
+                text-align: center;
+            }
+
+            footer {
+                margin-left: auto;
+                text-align: center;
+                padding: 10px;
+                background-color: #f07f;
+                color: #fff;
+                width: 100%;
+                border-radius: 9px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="logo">Logo</div>
+            <nav class="links">
+                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="#">Services</a>
+            </nav>
+        </header>
+        <main>
+            <section class="articles_section">
+                <article class="articles">
+                    <div class="article">
+                        <h1 class="article-title">Title 1</h1>
+                        <figure>
+                            <img src="sample.jpg" alt="Sample Image" />
+                            <figcaption>Image Caption</figcaption>
+                        </figure>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing
+                            elit. Repudiandae, soluta. Perspiciatis
+                            necessitatibus velit voluptates veniam sed commodi
+                            dolor incidunt excepturi voluptatibus impedit nisi
+                            deserunt repudiandae aperiam, sapiente quibusdam?
+                            Deserunt, suscipit?
+                        </p>
+                    </div>
+
+                    <div class="article">
+                        <h1 class="article-title">Title 2</h1>
+                        <figure>
+                            <img src="sample.jpg" alt="Sample Image" />
+                            <figcaption>Image Caption</figcaption>
+                        </figure>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing
+                            elit. Repudiandae, soluta. Perspiciatis
+                            necessitatibus velit voluptates veniam sed commodi
+                            dolor incidunt excepturi voluptatibus impedit nisi
+                            deserunt repudiandae aperiam, sapiente quibusdam?
+                            Deserunt, suscipit?
+                        </p>
+                    </div>
+                </article>
+
+                <aside>
+                    <h1>Related News</h1>
+                    <ul class="realted_news_links">
+                        <li>
+                            <a class="realted_news_link" href="#"
+                                >Related News 1</a
+                            >
+                        </li>
+                        <li>
+                            <a class="realted_news_link" href="#"
+                                >Related News 2</a
+                            >
+                        </li>
+                        <li>
+                            <a class="realted_news_link" href="#"
+                                >Related News 3</a
+                            >
+                        </li>
+                    </ul>
+                </aside>
+            </section>
+            <section class="recent_posts">
+                <h1>Recent Posts</h1>
+                <table>
+                    <caption>List of Tables</caption>
+                    <thead>
+                        <tr>
+                            <th>Post Title</th>
+                            <th>Date</th>
+                            <th>Author</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Post 1</td>
+                            <td>18-12-2024</td>
+                            <td>Author 1</td>
+                        </tr>
+                        <tr>
+                            <td>Post 2</td>
+                            <td>19-12-2024</td>
+                            <td>Author 2</td>
+                        </tr>
+                        <tr>
+                            <td>Post 3</td>
+                            <td>20-12-2024</td>
+                            <td>Author 3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <footer>&copy; Copyright by Mohammad Armaan 2024</footer>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+        <title>7th Prg</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                font-family: sans-serif;
+            }
+            body {
+                display: flex;
+                align-items: start;
+                justify-content: center;
+                flex-direction: column;
+            }
+            main {
+                margin: 50px 40px;
+                padding: 15px;
+                width: 100%;
+            }
+            section {
+                margin-bottom: 25px;
+                box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+                height: auto;
+                padding: 25px;
+                width: 80%;
+                border-radius: 9px;
+            }
+            .heading {
+                font-size: 24px;
+                font-weight: 600;
+                color: #333;
+                margin-bottom: 25px;
+            }
+            textarea {
+                width: 100%;
+                border-radius: 9px;
+                border: 1.5px solid #ccc;
+                padding: 5px;
+                color: #333;
+                font-size: 16px;
+                margin-bottom: 25px;
+            }
+            textarea:focus {
+                border: 2px solid #007bff;
+            }
+            button {
+                color: #fff;
+                background-color: #007bff;
+                padding: 8px;
+                border-radius: 9px;
+                border: none;
+                margin-bottom: 25px;
+                font-size: 20px;
+                font-weight: 500;
+            }
+            button:hover {
+                background-color: #008dff;
+            }
+            pre {
+                width: 96%;
+                height: auto;
+                background-color: #ccffcc;
+                border: 1.5px solid #0f7;
+                font-size: 16px;
+                overflow: auto;
+                padding: 25px;
+                border-radius: 9px;
+                opacity: 0;
+            }
+            .success {
+                background-color: #ccffcc;
+                border: 1.5px solid #0f7;
+            }
+            .error {
+                background-color: #ffdddd;
+                border: 1.5px solid #f05;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <section>
+                <h1 class="heading">1. Convert JSON to Javascript Object</h1>
+                <textarea
+                    placeholder="Enter json here"
+                    id="jsonInput"
+                    rows="5"
+                ></textarea>
+                <button onclick="covertObject()">Convert JSON</button>
+                <pre id="jsonOutput" class="output">Hello</pre>
+            </section>
+            <section>
+                <h1 class="heading">2. Convert JSON to Date</h1>
+                <textarea
+                    placeholder="Enter json here"
+                    id="dateInput"
+                    rows="5"
+                ></textarea>
+                <button onclick="convertDate()">Convert Date</button>
+                <pre id="dateOutput" class="output">Hello</pre>
+            </section>
+            <section>
+                <h1 class="heading">3. Convert JSON to CSV and CSV to JSON</h1>
+                <textarea
+                    placeholder="Enter csv here"
+                    id="csvToJsonInput"
+                    rows="5"
+                ></textarea>
+                <button onclick="convertCSVToJson()">Convert JSON</button>
+                <pre id="csvToJsonOutput" class="output">Hello</pre>
+                <textarea
+                    id="jsonToCsvInput"
+                    rows="5"
+                    placeholder="Enter json here"
+                ></textarea>
+                <button onclick="convertJsonToCsv()">Convert CSV</button>
+                <pre id="jsonToCsvOutput"></pre>
+            </section>
+            <section>
+                <h1 class="heading">4. Create a hash from string</h1>
+                <textarea
+                    placeholder="Enter json here"
+                    id="textInput"
+                    rows="5"
+                ></textarea>
+                <button onclick="createHash()">Create Hash</button>
+                <pre id="hashOutput" class="output">Hello</pre>
+            </section>
+        </main>
+    </body>
+    <script>
+        function showResult(id, text, isSuccess) {
+            const element = document.getElementById(id);
+            element.textContent = text;
+            element.style.display = "block";
+            element.style.opacity = "1";
+            element.className = isSuccess ? "success" : "error";
+        }
+
+        function covertObject() {
+            const jsonInput = document.getElementById("jsonInput").value;
+            try {
+                const jsonObject = JSON.parse(jsonInput);
+                showResult(
+                    "jsonOutput",
+                    JSON.stringify(jsonObject, null, 2),
+                    true
+                );
+            } catch (error) {
+                showResult("jsonOutput", "Invalid JSON", false);
+            }
+        }
+
+        function convertDate() {
+            const dateInput = document.getElementById("dateInput").value;
+            const data = JSON.parse(dateInput);
+            console.log(data);
+            try {
+                if (data.date && !isNaN(new Date(data.date).getTime())) {
+                    const date = new Date(data.date);
+                    showResult("dateOutput", date, true);
+                } else {
+                    showResult("dateOutput", "Invalid Date format", false);
+                }
+            } catch (error) {
+                showResult("dateOutput", "Invalid JSON format", false);
+            }
+        }
+        function convertCSVToJson() {
+            const csvInput = document
+                .getElementById("csvToJsonInput")
+                .value.trim();
+            if (!csvInput) {
+                showResult(
+                    "csvAndJsonOutput",
+                    "Invalid CSV: No data found.",
+                    false
+                );
+                return;
+            }
+
+            const lines = csvInput.split("\n");
+            const keys = lines[0].split(",");
+
+            if (!keys.length) {
+                showResult(
+                    "csvToJsonOutput",
+                    "Invalid CSV: No columns found.",
+                    false
+                );
+                return;
+            }
+
+            const jsonArray = lines.slice(1).map((line) => {
+                const values = line.split(",");
+                return keys.reduce((obj, key, index) => {
+                    obj[key] = values[index];
+                    return obj;
+                }, {});
+            });
+
+            showResult(
+                "csvToJsonOutput",
+                JSON.stringify(jsonArray, null, 2),
+                true
+            );
+        }
+
+        function convertJsonToCsv() {
+            try {
+                const csvInput =
+                    document.getElementById("jsonToCsvInput").value;
+
+                const jsonArray = JSON.parse(csvInput);
+
+                if (!Array.isArray(csvInput) || jsonArray.length === 0) {
+                    showResult(
+                        "jsonToCsvOutput",
+                        "Please Enter Some Csv",
+                        false
+                    );
+                }
+
+                const headers = Object.keys(jsonArray[0]);
+
+                const csvRows = jsonArray.map((obj) =>
+                    headers.map((header) => obj[header] ?? "").join(",")
+                );
+
+                const csvOutput = [headers.join(","), ...csvRows].join("\n");
+
+                showResult("jsonToCsvOutput", csvOutput, true);
+            } catch (error) {
+                showResult("jsonToCsvOutput", "Invalid JSON Format", false);
+            }
+        }
+
+        function createHash() {
+            const textInput = document.getElementById("textInput").value;
+            const hashedOutput = CryptoJS.SHA256(textInput).toString();
+            if (!textInput.length > 0) {
+                showResult(
+                    "hashOutput",
+                    "Please eneter the text to hash",
+                    false
+                );
+            } else {
+                showResult("hashOutput", hashedOutput, true);
+            }
+        }
+    </script>
+</html>
